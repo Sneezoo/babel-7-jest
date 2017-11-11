@@ -1,10 +1,14 @@
 {
-  "name": "babel-jest",
+  "name": "babel-7-jest",
   "description": "Jest plugin to use babel for transformation.",
   "version": "21.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/facebook/jest.git"
+  },
+  "scripts": {
+    "build": "babel src/ -d build",
+    "postinstall": "npm run build"
   },
   "license": "MIT",
   "main": "build/index.js",
@@ -13,9 +17,11 @@
     "babel-preset-jest": "^21.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0"
+    "@babel/cli": "^7.0.0-beta.31",
+    "@babel/core": "^7.0.0-beta.31",
+    "@babel/preset-env": "^7.0.0-beta.31"
   },
   "peerDependencies": {
-    "babel-core": "^6.0.0 || ^7.0.0-alpha || ^7.0.0-beta || ^7.0.0"
+    "@babel/core": "^7.0.0-alpha || ^7.0.0-beta || ^7.0.0"
   }
 }

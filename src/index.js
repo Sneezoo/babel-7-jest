@@ -7,14 +7,11 @@
  * @flow
  */
 
-import type {Path, ProjectConfig} from 'types/Config';
-import type {CacheKeyOptions, TransformOptions} from 'types/Transform';
-
 import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import jestPreset from 'babel-preset-jest';
-import {transform as babelTransform, util as babelUtil} from 'babel-core';
+import {transform as babelTransform, util as babelUtil} from '@babel/core';
 import babelIstanbulPlugin from 'babel-plugin-istanbul';
 
 const BABELRC_FILENAME = '.babelrc';
@@ -23,7 +20,7 @@ const BABEL_CONFIG_KEY = 'babel';
 const PACKAGE_JSON = 'package.json';
 const THIS_FILE = fs.readFileSync(__filename);
 
-const createTransformer = (options: any) => {
+const createTransformer = (options) => {
   const cache = Object.create(null);
 
   const getBabelRC = filename => {
@@ -78,11 +75,11 @@ const createTransformer = (options: any) => {
   return {
     canInstrument: true,
     getCacheKey(
-      fileData: string,
-      filename: Path,
-      configString: string,
-      {instrument, rootDir}: CacheKeyOptions,
-    ): string {
+      fileData,
+      filename,
+      configString,
+      {instrument, rootDir},
+    ) {
       return crypto
         .createHash('md5')
         .update(THIS_FILE)
@@ -99,11 +96,11 @@ const createTransformer = (options: any) => {
         .digest('hex');
     },
     process(
-      src: string,
-      filename: Path,
-      config: ProjectConfig,
-      transformOptions: TransformOptions,
-    ): string {
+      src,
+      filename,
+      config,
+      transformOptions,
+    ) {
       if (babelUtil && !babelUtil.canCompile(filename)) {
         return src;
       }
@@ -132,4 +129,4 @@ const createTransformer = (options: any) => {
 };
 
 module.exports = createTransformer();
-(module.exports: any).createTransformer = createTransformer;
+(module.exports).createTransformer = createTransformer;
