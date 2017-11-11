@@ -7,7 +7,7 @@ babel-jest didn't work with `@babel/*` packages so I made it to do so.
 ## Setup
 
 ```
-npm install --save-dev babel-jest
+npm install --save-dev babel-7-jest
 ```
 
 Add it to your jest configuration like this:
