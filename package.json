@@ -1,7 +1,7 @@
 {
   "name": "babel-7-jest",
   "description": "Jest plugin to use babel for transformation.",
-  "version": "21.3.2",
+  "version": "21.3.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sneezoo/babel-7-jest.git"
