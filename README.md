@@ -1,3 +1,11 @@
+# DEPRECATED
+
+The Babel team has provided an official solution for the problem that this package was solving. If you want to use `jest` with `babel@7` please just install following:
+
+```sh
+npm install --save-dev babel-jest @babel/core babel-core@7.0.0-bridge.0
+```
+
 # babel-7-jest
 [Babel](https://github.com/babel/babel) [jest](https://github.com/facebook/jest)
 plugin
