@@ -17,11 +17,11 @@
     "babel-preset-jest": "^21.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.37",
-    "@babel/core": "^7.0.0-beta.37",
-    "@babel/preset-env": "^7.0.0-beta.37"
+    "@babel/cli": "^7.2.2",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.2"
   },
   "peerDependencies": {
-    "@babel/core": "^7.0.0-alpha || ^7.0.0-beta || ^7.0.0"
+    "@babel/core": "^7.2.2"
   }
 }
